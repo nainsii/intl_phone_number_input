@@ -161,6 +161,7 @@ class SelectorButton extends StatelessWidget {
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),
             child: DraggableScrollableSheet(
+              initialChildSize: 0.75,
               builder: (BuildContext context, ScrollController controller) {
                 return Directionality(
                   textDirection: Directionality.of(inheritedContext),
