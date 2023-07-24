@@ -19,7 +19,7 @@ class Item extends StatelessWidget {
     this.useEmoji,
     this.textStyle,
     this.withCountryNames = false,
-    this.leadingPadding = 12,
+    this.leadingPadding = 0,
     this.trailingSpace = true,
   }) : super(key: key);
 
@@ -27,7 +27,7 @@ class Item extends StatelessWidget {
   Widget build(BuildContext context) {
     String dialCode = (country?.dialCode ?? '');
     if (trailingSpace) {
-      dialCode = dialCode.padRight(5, "   ");
+      dialCode = dialCode.padRight(5, "");
     }
     return Container(
       child: Row(
@@ -40,12 +40,21 @@ class Item extends StatelessWidget {
             showFlag: showFlag,
             useEmoji: useEmoji,
           ),
-          SizedBox(width: 12.0),
+          SizedBox(width: 10.0),
           Text(
             '$dialCode',
             textDirection: TextDirection.ltr,
             style: textStyle,
           ),
+          Icon(
+            Icons.arrow_drop_down,
+            size: 20,
+          ),
+          Container(
+            height: 30,
+            width: 1,
+            color: Colors.black.withOpacity(0.13),
+          )
         ],
       ),
     );
